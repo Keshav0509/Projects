@@ -1,10 +1,13 @@
-import style from './index.css';
+import NavBar from "../components/Navbar.jsx";
+import TodoApp from "../components/TodoApp.jsx";
+
 
 function App() {
 
     return (
     <>
-      <h1 className={style.headingh1}>hello world</h1>
+      <NavBar />
+      <TodoApp />
     </>
   )
 }
