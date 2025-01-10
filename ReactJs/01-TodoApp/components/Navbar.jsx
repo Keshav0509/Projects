@@ -1,5 +1,4 @@
-import style from './navbar.css';
-
+import style from './TodoStyle.module.css';
 
 function NavBar(){
 
@@ -10,19 +9,17 @@ function NavBar(){
           <div className={style.leftSection}>
             <span className={style.logo}>CodeMe</span>
             <div className={style.menuIcon}>
-              <div></div>
-              <div></div>
-              <div></div>
+              <img className={style.menu} src="../public/burgerMenu.svg" alt="" />
             </div>
           </div>
           <div className={style.rightSection}>
             <div>
               <ul className={style.link}>
-                <li><a href="#Home">home</a></li>
-                <li><a href="#Experiences">Experiences</a></li>
-                <li><a href="#Projects">Projects</a></li>
-                <li><a href="#About">About</a></li>
-                <li><a href="#Contact">Contact</a></li>
+                <a href="#Home"><li>Home</li></a>
+                <a href="#Experiences"><li>Experiences</li></a>
+                <a href="#Projects"><li>Projects</li></a>
+                <a href="#About"><li>About</li></a>
+                <a href="#Contact"><li>Contact</li></a>
               </ul>
             </div>
             <div></div>
@@ -32,4 +29,5 @@ function NavBar(){
     </>
   )
 }
+
 export default NavBar;
