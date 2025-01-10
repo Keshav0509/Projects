@@ -1,9 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
+  /* grey shades */
   --clr-black: hsl(0, 0%, 10%);
-  --clr-red: hsl(0, 100%, 25%);
+  --clr-grey-2: hsl(0, 0%, 20%);
+  --clr-grey-3: hsl(0, 0%, 30%);
+  --clr-grey-4: hsl(0, 0%, 40%);
+  --clr-grey-5: hsl(0, 0%, 50%);
+  --clr-grey-6: hsl(0, 0%, 60%);
+  --clr-grey-7: hsl(0, 0%, 70%);
+  --clr-grey-8: hsl(0, 0%, 80%);
+  --clr-grey-9: hsl(0, 0%, 90%);
+  /* red shades */
+  --clr-red: hsl(0, 100%, 10%);
+  --clr-red-2: hsl(0, 100%, 20%);
+  --clr-red-3: hsl(0, 100%, 30%);
+  --clr-red-4: hsl(0, 100%, 40%);
+  --clr-red-5: hsl(0, 100%, 50%);
+  --clr-red-6: hsl(0, 100%, 60%);
+  --clr-red-7: hsl(0, 100%, 70%);
+  --clr-red-8: hsl(0, 100%, 80%);
+  --clr-red-9: hsl(0, 100%, 90%);
+
+  /* shadow */
+  --shadow-sm: 1px 1px 3px hsla(0, 0%, 5%, 0.75);
+  --shadow-md: 1px 1px 3px hsla(0, 0%, 30%, 0.85);
+  --shadow-mx: 1px 1px 3px hsla(0, 0%, 50%, 0.95);
+  /* border */
+  --border-grey-1: 1px solid var(--clr-grey-6);
+  --border-black-1: 1px solid var(--clr-black);
+  /* border radius */
+  --radius-2: 2px;
+  --radius-5: 5px;
+  --radius-8: 8px;
+  --radius-10: 10px;
 }
+
 .nav{
   display: flex;
   align-items: center;
@@ -35,11 +67,68 @@
   padding: 2px 8px;
 }
 .link li:hover{
-  color: var(--clr-red);
+  color: var(--clr-red-3);
 }
 .link li a{
   color: var(--clr-black);
 }
+
+.TodoApp{
+  max-width: 700px;
+  margin: auto;
+  padding-top: 100px;
+}
+.taskList li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todoName{
+  display: flex;
+}
+.todoBtnContainer{
+  display: flex;
+}
+.heading{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  border: 1px solid var(--clr-black);
+  margin-bottom: 20px;
+}
+.subheading{
+  font-family: roboto, sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--clr-grey-2);
+  border: var(--border-black-1);
+  margin-bottom: 10px;
+}
+.inputContainer{
+  display: flex;
+  align-items: center;
+}
+.inputContainer input{
+  border: var(--border-black-1)
+}
+.inputContainer button{
+  border: var(--border-black-1);
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* mediaQuaries */
