@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import style from './TodoStyle.module.css';
 
 function TodoApp(){
+  const [task, setTask] = useState([]);
+  
+
 
   return(
     <section className={style.TodoApp}>
