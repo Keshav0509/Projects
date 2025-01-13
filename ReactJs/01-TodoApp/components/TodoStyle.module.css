@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
+  /* font colors */
+  --clr-black: hsl(0, 0%, 0%);
+  --clr-white: hsl(0, 0%, 100%);
   /* grey shades */
-  --clr-black: hsl(0, 0%, 10%);
+  --clr-grey-1: hsl(0, 0%, 10%);
   --clr-grey-2: hsl(0, 0%, 20%);
   --clr-grey-3: hsl(0, 0%, 30%);
   --clr-grey-4: hsl(0, 0%, 40%);
@@ -11,6 +14,17 @@
   --clr-grey-7: hsl(0, 0%, 70%);
   --clr-grey-8: hsl(0, 0%, 80%);
   --clr-grey-9: hsl(0, 0%, 90%);
+  /* blue shades */
+  --clr-blue-1: hsl(200, 100%, 10%);
+  --clr-blue-2: hsl(200, 100%, 20%);
+  --clr-blue-3: hsl(200, 100%, 30%);
+  --clr-blue-4: hsl(200, 100%, 40%);
+  --clr-blue-5: hsl(200, 100%, 50%);
+  --clr-blue-6: hsl(200, 100%, 60%);
+  --clr-blue-7: hsl(200, 100%, 70%);
+  --clr-blue-8: hsl(200, 100%, 80%);
+  --clr-blue-9: hsl(200, 100%, 90%);
+  --clr-blue-10: hsl(200, 100%, 100%);
   /* red shades */
   --clr-red: hsl(0, 100%, 10%);
   --clr-red-2: hsl(0, 100%, 20%);
@@ -21,11 +35,13 @@
   --clr-red-7: hsl(0, 100%, 70%);
   --clr-red-8: hsl(0, 100%, 80%);
   --clr-red-9: hsl(0, 100%, 90%);
+  /* green shade */
+  --clr-green-1: hsl(120, 100%, 50%);
 
   /* shadow */
-  --shadow-sm: 1px 1px 3px hsla(0, 0%, 5%, 0.75);
-  --shadow-md: 1px 1px 3px hsla(0, 0%, 30%, 0.85);
-  --shadow-mx: 1px 1px 3px hsla(0, 0%, 50%, 0.95);
+  --shadow-sm: 0px 1px 3px hsla(0, 0%, 5%, 0.1);
+  --shadow-md: 1px 1px 3px hsla(0, 0%, 30%, 0.5);
+  --shadow-mx: 1px 1px 3px hsla(0, 0%, 50%, 0.5);
   /* border */
   --border-grey-1: 1px solid var(--clr-grey-6);
   --border-black-1: 1px solid var(--clr-black);
@@ -41,6 +57,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: roboto, sans-serif, Arial, Helvetica, sans-serif, 'Times New Roman', Times, serif;
+  padding: 0 20px;
 }
 .leftSection{
   display: flex;
@@ -62,77 +79,17 @@
   gap: 1rem;
 }
 .link li{
-  /* border: 1px solid black; */
   font-size: 1.5rem;
   padding: 2px 8px;
+  transition: all 0.2s ease-in-out;
 }
 .link li:hover{
-  color: var(--clr-red-3);
+  color: var(--clr-blue-6);
 }
 .link li a{
   color: var(--clr-black);
 }
-
-.TodoApp{
-  max-width: 700px;
-  margin: auto;
-  padding-top: 100px;
-}
-.taskList li{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.todoName{
-  display: flex;
-}
-.todoBtnContainer{
-  display: flex;
-}
-.heading{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 2rem;
-  text-align: center;
-  border: 1px solid var(--clr-black);
-  margin-bottom: 20px;
-}
-.subheading{
-  font-family: roboto, sans-serif, Arial, Helvetica, sans-serif;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--clr-grey-2);
-  border: var(--border-black-1);
-  margin-bottom: 10px;
-}
-.inputContainer{
-  display: flex;
-  align-items: center;
-}
-.inputContainer input{
-  border: var(--border-black-1)
-}
-.inputContainer button{
-  border: var(--border-black-1);
-  display: flex;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* mediaQuaries */
-
 @media(max-width:950px)
 {
   .logo{
@@ -142,7 +99,6 @@
     font-size: 1.25rem;
   }
 }
-
 @media(max-width:768px)
 {
   .logo{
@@ -155,7 +111,6 @@
     font-size: 1.25rem;
   }
 }
-
 @media(max-width:650px)
 {
   .logo{
@@ -168,7 +123,6 @@
     font-size: 1.2rem;
   }
 }
-
 @media(max-width:550px)
 {
   .nav{
@@ -188,4 +142,104 @@
   .link li{
     font-size: 14px;
   }
+}
+/* page formating */
+.todoContianer{
+  padding: 0 20px;
+}
+.heading{
+  font-weight: bold;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 80px;
+  padding-bottom: 10px;
+  background: var(--clr-blue-7);
+  color: var(--clr-white);
+}
+.subheading{
+  margin-top: 20px;
+  font-size: 1.75rem;
+  color: var(--clr-grey-1);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.inputContainer, .addTaskBtn{
+  display: flex;  
+}
+.inputContainer{
+  margin-bottom: 10px;
+}
+.inputContainer input{
+  border: 1px solid var(--clr-grey-7);
+  padding: 4px 10px;
+  font-size: 1.25rem;
+  border-right: 0;
+  outline: none;
+}
+.inputContainer input::placeholder{
+  color: var(--clr-grey-8);
+}
+.addTaskBtn{
+  align-items: center;
+  background-color: var(--clr-blue-7);
+  justify-content: center;
+  font-size: 1.25rem;
+  padding: 0px 20px;
+  font-weight: 500;
+  font-family: Roboto, sans-serif, Arial, Helvetica, sans-serif;
+  color: var(--clr-white);
+}
+.addTaskBtn:hover{
+  background-color: var(--clr-blue-6);
+}
+.inputContainer span{
+  margin-left: 10px;
+  align-self: center;
+  color: var(--clr-green-1);
+  font-size: 1rem;
+}
+.headingContainer{
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* border-bottom: 1px solid var(--clr-grey-8); */
+  border-radius: 5px;
+  box-shadow: var(--shadow-sm);
+}
+
+.todoContianer{
+  max-width: 800px;
+  margin: auto;
+}
+.taskList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  /* border: 1px solid black; */
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+.taskList li:hover{
+  box-shadow: var(--shadow-mx);
+}
+.taskList li .todoCount{
+  margin-right: 10px;
+}
+.taskList li .todoBtnContainer{
+  display: flex;
+}
+.taskList li button{
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 3px;
+}
+.taskList li button:hover{
+  background: var(--clr-grey-9);
 }
