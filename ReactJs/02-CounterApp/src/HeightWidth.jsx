@@ -13,7 +13,11 @@ function HeightWidth(){
       window.removeEventListener("resize", handleResize);
       console.log("event listener removed...");
     }
-  },[])
+  },[]);
+
+  useEffect(()=>{
+    document.title = `${width}px X ${height}px`;
+  },[height, width])
 
   function handleResize(){
     setHeight(window.innerHeight);
