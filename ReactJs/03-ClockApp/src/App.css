@@ -28,3 +28,20 @@
   padding: 4px 0;
   width: 100%;
 }
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  flex-direction: column;
+  margin: auto;
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+button{
+  padding: 4px 13px;
+  text-transform: capitalize;
+  font-size: 2.25rem;
+  cursor: pointer;
+}
