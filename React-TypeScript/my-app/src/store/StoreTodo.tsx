@@ -32,21 +32,25 @@ export function TodoProvider ({children}: TodoProviderProps){
 
   // add new todo here
   function handleAddTodo(task: string){
-    setTodos((prev) => {
-      const newTodos: Todos[] =[
-        {
-          id: Math.random().toString(),
-          task: task,
-          completed: false,
-          createdAt: new Date()
-        },
-        ...prev
-      ]
-      // console.log(prev);
-      // console.log(newTodos);
-      localStorage.setItem("todo", JSON.stringify(newTodos));
-      return newTodos
-    })
+    if(task.trim() !== ''){
+      setTodos((prev) => {
+        const newTodos: Todos[] =[
+          {
+            id: Math.random().toString(),
+            task: task,
+            completed: false,
+            createdAt: new Date()
+          },
+          ...prev
+        ]
+        // console.log(prev);
+        // console.log(newTodos);
+        localStorage.setItem("todo", JSON.stringify(newTodos));
+        return newTodos
+      })
+    }else{
+      alert(`Todo Cann't be empty or spaces. :(`)
+    }
   }
   // complete status or toggle complete or mark complete
   function toggleTodoAsCompleted(id: string){
