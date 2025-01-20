@@ -1,5 +1,7 @@
 import { useTodos } from "../store/StoreTodo"
 import { useSearchParams } from "react-router-dom";
+import { AiOutlineDelete  } from "react-icons/ai";
+import style from '../App.module.css';
 
 
 const Todos = () => {
@@ -19,23 +21,27 @@ const Todos = () => {
 
   return (
     <>
-     <ul>
+     <ul className={`list-group ${style.list}`}>
       {
         filterData.map((todo)=> {
-          return <li key={todo.id}>
-            <input 
-              type="checkbox"
-              id={`todo-${todo.id}`} 
-              checked={todo.completed}
-              onChange={()=>toggleTodoAsCompleted(todo.id)}
-              />
-            <label htmlFor={`todo-${todo.id}`}>{todo.task}</label>
+          return <li 
+            className={`list-group-item`}
+            key={todo.id}>
+              <div>
+                <input 
+                  type="checkbox"
+                  id={`todo-${todo.id}`} 
+                  checked={todo.completed}
+                  onChange={()=>toggleTodoAsCompleted(todo.id)}
+                  />
+                <label htmlFor={`todo-${todo.id}`}>{todo.task}</label>
+              </div>
             {
               todo.completed && <button 
               type="button"
               id={`todo-${todo.id}`}
               onClick={()=>handleDeleteTodo(todo.id)}
-              >delete</button>
+              ><AiOutlineDelete /></button>
             }
             
           </li>
