@@ -8,7 +8,7 @@ const Todos = () => {
   const {todos, toggleTodoAsCompleted, handleDeleteTodo} = useTodos();
 
   let filterData = todos;
-
+  // console.log(filterData);
   const [searchParams] = useSearchParams();
   const todoData = searchParams.get("todos");
   // console.log("console here => "+todoData);
