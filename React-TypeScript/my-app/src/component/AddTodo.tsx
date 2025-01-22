@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react"
+import { useState } from "react"
 import { useTodos } from "../store/StoreTodo";
 import style from '../App.module.css';
 import { AiOutlinePlus } from "react-icons/ai";
@@ -7,13 +7,13 @@ const AddTodo = () => {
   const [todo, setTodo] = useState('');
   const {handleAddTodo} = useTodos();
 
-  function handleFormSubmit(e: FormEvent<HTMLFormElement>){
-    e.preventDefault();
+  function handleFormSubmit(){
+    // e.preventDefault();
     // console.log(e)
     handleAddTodo(todo);
     setTodo('');
   }
-
+  
   return (
     <div>
       <form 

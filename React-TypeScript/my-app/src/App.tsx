@@ -3,6 +3,7 @@ import NavBar from "./component/NavBar"
 import Todos from "./component/Todos"
 import { AiOutlineFileDone   } from "react-icons/ai";
 import style from './App.module.css';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <NavBar />
       <AddTodo />  
       <Todos />
+      <SpeedInsights />
     </div>
   )
 }
