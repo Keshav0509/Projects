@@ -69,7 +69,6 @@ function App(){
     }else{
       setNumber(nextQuestion)
     }
-    console.log(scores);
   }
 
   return (
@@ -89,7 +88,7 @@ function App(){
             answers = {questions[number].answers}
             callback = {checkAnswer}
             userAnswer = {userAnswer ? userAnswer[number] : undefined}
-            questionNum = {number+1}
+            questionNum = { number + 1 }
             totalQuestions = {TOTAL_QUESTIONS}
           />
         )}
