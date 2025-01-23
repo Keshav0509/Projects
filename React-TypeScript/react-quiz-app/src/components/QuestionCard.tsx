@@ -5,7 +5,7 @@ import style from '../styles/Style.module.css'
 const QuestionCard: React.FC<Props> = (
   {
     question,
-    answer,
+    answers,
     callback,
     userAnswer,
     questionNum,
@@ -20,7 +20,7 @@ const QuestionCard: React.FC<Props> = (
       <p dangerouslySetInnerHTML={{__html: question}} className={style.question}/>
       <div className={`${style.btns} ${style.container} ${style.btnContainer}`}>
         {
-          answer.map((answer, index)=>(
+          answers.map((answer, index)=>(
             <div key={index}>
               <button
                 key={index}

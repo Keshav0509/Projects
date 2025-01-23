@@ -10,7 +10,7 @@ export type Question = {
   type: string
 }
 
-export type QuestionState = Question & { answer: string[] };
+export type QuestionState = Question & { answers: string[] };
 
 export enum Difficulty {
   EASY = 'easy',
@@ -26,7 +26,7 @@ export enum Questions_Type {
 
 export type Props = {
   question: string,
-  answer: string[],
+  answers: string[],
   callback: (e: React.MouseEvent<HTMLButtonElement>) => void,
   userAnswer: AnswerObject | undefined,
   questionNum: number,
