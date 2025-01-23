@@ -86,7 +86,7 @@ function App(){
         {!loading && !gameOver && (
           <QuestionCard 
             question = {questions[number].question}
-            answers = {questions[number].answers}
+            answer = {questions[number].answer}
             callback = {checkAnswer}
             userAnswer = {userAnswer ? userAnswer[number] : undefined}
             questionNum = {number+1}

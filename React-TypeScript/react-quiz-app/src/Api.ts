@@ -26,7 +26,7 @@ export enum Questions_Type {
 
 export type Props = {
   question: string,
-  answers: string[],
+  answer: string[],
   callback: (e: React.MouseEvent<HTMLButtonElement>) => void,
   userAnswer: AnswerObject | undefined,
   questionNum: number,
