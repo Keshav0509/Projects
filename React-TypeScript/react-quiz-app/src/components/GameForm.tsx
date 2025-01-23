@@ -1,16 +1,10 @@
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Difficulty, Questions_Type } from '../Api';
 
 export type GameFormProps = {
   difficulty: string,
   questionType: string,
   questionQuantity: string,
-}
-
-export const gameFormInput = {
-  difficulty,
-  questionType,
-  questionQuantity
 }
 
 const GameForm = () => {
@@ -46,7 +40,7 @@ const GameForm = () => {
 
       <select onChange={handleQuestionType}>
         <option value=''>Select Question Type</option>
-        <option value={Questions_Type.MULTIPLE}>Multiple Choice</option>
+        <option value={Questions_Type.MULTI}>Multiple Choice</option>
         <option value={Questions_Type.BOOLEAN}>True/False</option>
       </select>
 
