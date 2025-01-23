@@ -7,7 +7,7 @@ import style from './styles/Style.module.css';
 import Loader from "./components/Loader";
 import Watch from "./components/Watch";
 
-const TOTAL_QUESTIONS = 5;
+const TOTAL_QUESTIONS = 50;
 // const { question, questionType, questionQuantity } = GameFormProps;
 
 
