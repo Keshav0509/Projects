@@ -4,7 +4,7 @@ import QuestionCard from "./components/QuestionCard"
 import { fetchQuizQuestions, QuestionState, Difficulty, Questions_Type, AnswerObject } from "./Api";
 // importing styles
 import style from './styles/Style.module.css';
-import Loader from "./components/Loader";
+// import Loader from "./components/Loader";
 import Watch from "./components/Watch";
 
 const TOTAL_QUESTIONS = 50;
