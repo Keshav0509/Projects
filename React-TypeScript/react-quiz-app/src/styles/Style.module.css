@@ -40,12 +40,14 @@ button:disabled{
   border: 1px solid transparent;
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
+  width: max-content;
 }
 .btn:hover{
   /* color: hsl(125, 100%, 7%); */
-  color: hsl(125, 100%, 7%);
-  border: 1px solid hsl(125, 100%, 7%);
-  background: transparent;
+  /* color: hsl(125, 100%, 7%); */
+  color: hsl(234, 100%, 98%);
+  border: 1px solid hsl(125, 50%, 20%);
+  background: hsl(125, 50%, 20%);
   /* font-weight: bold; */
   scale: 1.02;
   box-shadow: 3px 3px 3px hsla(0, 0%, 10%, 0.5);
@@ -145,32 +147,14 @@ button:disabled{
 .btns{
   gap: 10px;
   margin: 10px 0;
+  flex-wrap: wrap;
 }
 .btn:disabled{
-  background: transparent;
-  color: black;
-  border: 1px solid black;
+  background: hsl(125, 40%, 20%);
+  color: hsl(234, 100%, 98%);
+  border: 1px solid transparent;
 }
 .btn:disabled:hover{
   scale: initial;
   box-shadow: none;
 }
-
-@keyframes colorChange {
-  0% {
-    background-color: red;
-  }
-  25% {
-    background-color: yellow;
-  }
-  50% {
-    background-color: green;
-  }
-  75% {
-    background-color: blue;
-  }
-  100% {
-    background-color: red;
-  }
-}
-            

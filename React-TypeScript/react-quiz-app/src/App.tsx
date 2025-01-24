@@ -4,12 +4,10 @@ import QuestionCard from "./components/QuestionCard"
 import { fetchQuizQuestions, QuestionState, Difficulty, Questions_Type, AnswerObject } from "./Api";
 // importing styles
 import style from './styles/Style.module.css';
-// import Loader from "./components/Loader";
 import Watch from "./components/Watch";
-
-const TOTAL_QUESTIONS = 50;
-// const { question, questionType, questionQuantity } = GameFormProps;
-
+// importing some utils...
+import { padZero } from "./utils";
+const TOTAL_QUESTIONS = 5;
 
 function App(){
 
@@ -19,8 +17,6 @@ function App(){
   const [ userAnswer, setUserAnswer ] = useState<AnswerObject[]>([]);
   const [ scores, setScore ] = useState<number>(0);
   const [ gameOver, setGameOver ] = useState<boolean>(true);
-
-  // console.log( questions );
 
   async function startTrivia(){
     setLoading(true);
@@ -32,11 +28,9 @@ function App(){
       Questions_Type.ANY
     );
 
-    // console.log(newQuestion);
+    console.log(newQuestion);
     setQuestions(newQuestion);
-    setScore(()=>{
-      return gameOver ? scores : 0;
-    });
+    setScore(0);
     setUserAnswer([]);
     setNumber(0);
     setLoading(false);
@@ -45,10 +39,14 @@ function App(){
   function checkAnswer(e: React.MouseEvent<HTMLButtonElement>){
     if(!gameOver){
       // user answer
-      const answer = e.currentTarget.value;
+      const answer = e.currentTarget.innerText;
+      console.log(e);
       const correct = questions[number].correct_answer === answer;
       //add score if userAnswer is correct...
-      if(correct) setScore((prevScore) => prevScore + 1);
+      if(correct){
+       setScore((prevScore) => prevScore + 1);
+      }
+      console.log(correct);
       // save answer in the answer array for user answer...
       const answerObject = {
         question: questions[number].question,
@@ -57,8 +55,6 @@ function App(){
         correctAnswer: questions[number].correct_answer
       };
       setUserAnswer(prev => [...prev, answerObject] );
-      // console.log(e);
-      // console.log(userAnswer);
     }  
   }
 
@@ -79,7 +75,7 @@ function App(){
         </div>
       <div className={`${style.container} ${style.quizContainer}`}>
         {/* <GameForm /> */}
-        {!gameOver ? <p className={`${style.score}`}>scores: {scores}</p> : null}
+        {!gameOver ? <p className={`${style.score}`}>scores: {padZero(scores)}</p> : null}
         {loading && <div className={style.container}><p className={`${style.loadQuestions}`}>Loading Questions...</p><span className={style.loading}><span /><span /><span /></span></div>}
         
         {!loading && !gameOver && (

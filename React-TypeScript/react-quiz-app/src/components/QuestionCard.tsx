@@ -27,8 +27,9 @@ const QuestionCard: React.FC<Props> = (
                 disabled={userAnswer ? true : false}
                 onClick={callback}
                 className={style.btn}
+                dangerouslySetInnerHTML={{__html:answer}}
               >
-                <span dangerouslySetInnerHTML={{__html:answer}} />
+                {/* <span dangerouslySetInnerHTML={{__html:answer}} /> */}
               </button>
             </div>
           ))

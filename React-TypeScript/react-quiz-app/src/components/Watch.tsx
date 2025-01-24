@@ -3,7 +3,6 @@ import style from '../styles/Style.module.css'
 
 const Watch = () => {
   const [time, setTime] = useState(new Date());
-  // const now: Date = new Date();
   const formatTime = (): string =>{
     const hours: number = time.getHours();
     const minutes:number = time.getMinutes();
