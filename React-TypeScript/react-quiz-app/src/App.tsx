@@ -29,7 +29,7 @@ function App(){
       Questions_Type.ANY
     );
 
-    console.log(newQuestion);
+    // console.log(newQuestion);
     setQuestions(newQuestion);
     setScore(0);
     setUserAnswer([]);
@@ -46,7 +46,7 @@ function App(){
       if(correct){
        setScore((prevScore) => prevScore + 1);
       }
-      console.log(correct);
+      // console.log(correct);
       // save answer in the answer array for user answer...
       const answerObject = {
         question: questions[number].question,
