@@ -5,16 +5,14 @@ const Watch = () => {
   const [time, setTime] = useState(new Date());
   // const now: Date = new Date();
   const formatTime = (): string =>{
-    let hours:number = time.getHours();
+    const hours: number = time.getHours();
     const minutes:number = time.getMinutes();
     const seconds:number = time.getSeconds();
-
-    hours = 12 % hours || 12;
 
     return `${addPadding(hours)}:${addPadding(minutes)}:${addPadding(seconds)}`
   }
   const addPadding = (num: number): string | number => {
-    return (num < 10 ? "0"+num : num )
+    return (num < 10 ? "0" + num : num )
   }
   
   useEffect(()=>{
