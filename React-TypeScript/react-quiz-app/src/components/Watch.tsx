@@ -9,7 +9,7 @@ const Watch = () => {
     const minutes:number = time.getMinutes();
     const seconds:number = time.getSeconds();
 
-    hours = 12 % hours || hours;
+    hours = 12 % hours || 12;
 
     return `${addPadding(hours)}:${addPadding(minutes)}:${addPadding(seconds)}`
   }
