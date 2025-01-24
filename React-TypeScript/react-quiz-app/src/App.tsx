@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import QuestionCard from "./components/QuestionCard"
+import GameForm from "./components/GameForm";
 // importing the api
 import { fetchQuizQuestions, QuestionState, Difficulty, Questions_Type, AnswerObject } from "./Api";
 // importing styles
@@ -40,7 +41,6 @@ function App(){
     if(!gameOver){
       // user answer
       const answer = e.currentTarget.innerText;
-      console.log(e);
       const correct = questions[number].correct_answer === answer;
       //add score if userAnswer is correct...
       if(correct){
@@ -71,22 +71,27 @@ function App(){
     <main className={`${style.main}`}>
         <div className={`${style.headingContainer} ${style.container}`}>
           <h1 className={style.heading}>Quiz App <Watch/></h1>
-          {gameOver || userAnswer.length === TOTAL_QUESTIONS ? <button className={`${style.btnStart}`} onClick={startTrivia}>Start</button> : null }
+          { (gameOver || userAnswer.length === TOTAL_QUESTIONS) ?
+            <>
+              <button className={`${style.btnStart}`} onClick={startTrivia}>Start</button>
+              <GameForm />
+            </> : null
+          }
         </div>
       <div className={`${style.container} ${style.quizContainer}`}>
-        {/* <GameForm /> */}
-        {!gameOver ? <p className={`${style.score}`}>scores: {padZero(scores)}</p> : null}
-        {loading && <div className={style.container}><p className={`${style.loadQuestions}`}>Loading Questions...</p><span className={style.loading}><span /><span /><span /></span></div>}
-        
+        {loading && <div className={style.container}><p className={`${style.loadQuestions}`}>Loading Questions...</p></div>}
         {!loading && !gameOver && (
-          <QuestionCard 
-            question = {questions[number].question}
-            answers = {questions[number].answers}
-            callback = {checkAnswer}
-            userAnswer = {userAnswer ? userAnswer[number] : undefined}
-            questionNum = { number + 1 }
-            totalQuestions = {TOTAL_QUESTIONS}
-          />
+          <>
+            {!gameOver ? <p className={`${style.score}`}>scores: {padZero(scores)}</p> : null}
+            <QuestionCard 
+              question = {questions[number].question}
+              answers = {questions[number].answers}
+              callback = {checkAnswer}
+              userAnswer = {userAnswer ? userAnswer[number] : undefined}
+              questionNum = { number + 1 }
+              totalQuestions = {TOTAL_QUESTIONS}
+            />
+          </>
         )}
         {!loading && !gameOver && userAnswer.length === number + 1 ? (
           <button className={`${style.btn} ${style.btnStart} ${style.btnNext}`} onClick={nextQuestion}>Next Question</button>

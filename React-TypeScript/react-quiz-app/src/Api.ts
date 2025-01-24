@@ -1,5 +1,7 @@
 
+// import { useGameForm } from "./store/StoreGameForm";
 import { shuffleArray } from "./utils";
+
 
 export type Question = {
   category: string,
@@ -41,6 +43,8 @@ export type AnswerObject = {
 }
 
 export const fetchQuizQuestions = async( amount: number, difficulty: Difficulty, type: Questions_Type): Promise<QuestionState[]> =>{
+  
+  // const {difficulty, questionAmt, questionType} = useGameForm();
   try {
     const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}${type === Questions_Type.ANY ? '' :  `&type=${type}`}`;
     const data = await ( await fetch(endpoint)).json();

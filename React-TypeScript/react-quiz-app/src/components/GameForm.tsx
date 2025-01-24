@@ -1,5 +1,7 @@
-import { useState, ChangeEvent } from 'react';
-import { Difficulty, Questions_Type } from '../Api';
+// import { useState, SetStateAction } from 'react';
+import { useGameForm } from '../store/StoreGameForm';
+// import { Difficulty, Questions_Type } from '../Api';
+import style from '../styles/Style.module.css'
 
 export type GameFormProps = {
   difficulty: string,
@@ -8,43 +10,35 @@ export type GameFormProps = {
 }
 
 const GameForm = () => {
-  const [difficulty, setDifficulty] = useState<Difficulty | undefined>(Difficulty.EASY);
-  const [questionType, setQuestionType] = useState<Questions_Type | undefined>(Questions_Type.ANY);
-  const [questionQuantity, setQuestionQuantity] = useState<number>(5);
-
-  const handleDifficulty = (e: ChangeEvent<HTMLSelectElement>) => {
-    setDifficulty(e.target.value as Difficulty);
-  };
-
-  const handleQuestionType = (e: ChangeEvent<HTMLSelectElement>) => {
-    setQuestionType(e.target.value as Questions_Type);
-  };
-
-  const handleQuestionQuantity = (e: ChangeEvent<HTMLInputElement>) => {
-    const validNumber = parseInt(e.target.value);
-    setQuestionQuantity(validNumber);
-  };
-
-  console.log(difficulty);
-  console.log(questionType);
-  console.log(questionQuantity);
+  const difficultyArr = ['Easy', 'Medium', 'Hard'];
+  
+  const { difficulty, handleDifficultyChange } = useGameForm();
+  
 
   return (
     <>
-      <select onChange={handleDifficulty}>
-        <option value=''>Select Difficulty</option>
-        <option value={Difficulty.EASY}>Easy</option>
-        <option value={Difficulty.MEDIUM}>Medium</option>
-        <option value={Difficulty.HARD}>Hard</option>
-      </select>
-
-      <select onChange={handleQuestionType}>
-        <option value=''>Select Question Type</option>
-        <option value={Questions_Type.MULTI}>Multiple Choice</option>
-        <option value={Questions_Type.BOOLEAN}>True/False</option>
-      </select>
-
-      <input type="number" onChange={handleQuestionQuantity} placeholder="Enter number of questions" />
+      <div>
+        <div className={`${style.container}`}>Select Question Level: </div>
+        <div className={`${style.container}`}>
+          {
+            difficultyArr.map((level, index)=>
+              <div key={index}>
+              <input
+                  type="radio"
+                  id={`${level.toLowerCase()}`}
+                  value={`${level.toLowerCase()}`}
+                  checked={difficulty === level.toLowerCase()}
+                  onChange={() => handleDifficultyChange(`${level.toLowerCase()}`)}
+                />
+                <label
+                    htmlFor={`${level.toLowerCase()}`}>
+                    {`${level} `}
+                </label>
+              </div>
+            )
+          }
+        </div>
+      </div>
     </>
   );
 };
