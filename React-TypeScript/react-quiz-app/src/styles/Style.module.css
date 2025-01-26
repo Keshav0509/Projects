@@ -55,7 +55,7 @@ button:disabled{
 .glassEffect{
   border-radius: 10px;
   backdrop-filter: blur(2px);
-  padding: 20px;
+  padding: 40px;
 }
 .watch{
   font-size: 2rem;
@@ -69,14 +69,14 @@ button:disabled{
   flex-direction: column;
   width: 100%;
   padding: 10px 30px;
+  backdrop-filter: blur(0px) blur(1px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
 }
 .heading{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 10px; */
   width: 100%;
-
 }
 .heading{
  font-size: 3rem;
@@ -134,15 +134,18 @@ button:disabled{
 .questConunt{
   font-size: 2rem;
   font-weight: bold;
+  color: azure;
 }
 .question::before{
   content: 'Question. ';
   font-weight: bold;
+  color: white;
 }
 .question{
   font-size: 1.75rem;
   margin-bottom: 10px;
   text-align: center;
+  color: white;
 }
 .btns{
   gap: 10px;

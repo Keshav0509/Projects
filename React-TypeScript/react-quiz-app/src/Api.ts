@@ -32,7 +32,7 @@ export type Props = {
   callback: (e: React.MouseEvent<HTMLButtonElement>) => void,
   userAnswer: AnswerObject | undefined,
   questionNum: number,
-  totalQuestions: number;
+  totalQuestions: number | null;
 }
 
 export type AnswerObject = {
@@ -42,11 +42,9 @@ export type AnswerObject = {
   correctAnswer: string;
 }
 
-export const fetchQuizQuestions = async( amount: number, difficulty: Difficulty, type: Questions_Type): Promise<QuestionState[]> =>{
-  
-  // const {difficulty, questionAmt, questionType} = useGameForm();
+export const fetchQuizQuestions = async( amount: number, difficulty: string, type: string): Promise<QuestionState[]> =>{
   try {
-    const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}${type === Questions_Type.ANY ? '' :  `&type=${type}`}`;
+    const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}${type === '' ? '' :  `&type=${type}`}`;
     const data = await ( await fetch(endpoint)).json();
     const newData =  data.results.map((question: Question) => (
       {
