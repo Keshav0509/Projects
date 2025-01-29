@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useQuery } from "react-query"
 // components ...
-import {Grid, Badge, Drawer, LinearProgress, colors} from "@material-ui/core"
-import { AddShoppingCart, CodeSharp } from "@material-ui/icons"
+import {Grid, Badge, Drawer, LinearProgress} from "@material-ui/core"
+import { AddShoppingCart } from "@material-ui/icons"
 import Item from "./items/Items"
 import Cart from "./cart/Cart"
 // styles ...
